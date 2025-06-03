@@ -17,7 +17,8 @@
   "homepage": "https://github.com/NikolaIliev/trading-212-ynab-sync#readme",
   "description": "",
   "devDependencies": {
-    "@types/bun": "^1.2.15"
+    "@types/bun": "^1.2.15",
+    "prettier": "3.5.3"
   },
   "dependencies": {
     "@fast-csv/parse": "^5.0.2",
