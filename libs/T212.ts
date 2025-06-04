@@ -74,6 +74,12 @@ export class T212 {
           throw new Error(`[T212] Could not find report with id ${reportId}!`)
         }
 
+        if (typeof report.downloadLink !== "string") {
+          throw new Error(
+            `[T212] Report does not have a download link: ${JSON.stringify(report)}`,
+          )
+        }
+
         return report.downloadLink
       }
     }
