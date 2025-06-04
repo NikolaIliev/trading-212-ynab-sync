@@ -16,4 +16,8 @@ export const env = {
   T212ImportStartDate: readEnv("T212_IMPORT_START_DATE", z.string().optional()),
   YnabApiKey: readEnv("YNAB_API_KEY", z.string()),
   YnabTargetAccountName: readEnv("YNAB_TARGET_ACCOUNT_NAME", z.string()),
+  T212YnabConversionRate: readEnv(
+    "T212_YNAB_CONVERSION_RATE",
+    z.number().optional(),
+  ),
 }

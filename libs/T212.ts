@@ -4,6 +4,7 @@ import {
 } from "../schemas/T212Transaction"
 import * as csv from "@fast-csv/parse"
 import { delay } from "../utils/delay"
+import { time } from "./time"
 
 export class T212 {
   private headers: Record<string, string>
@@ -21,8 +22,7 @@ export class T212 {
     const timeFrom = new Date(
       Math.max(
         this.importStartDate ? new Date(this.importStartDate).getTime() : 0,
-        // 30 days ago
-        new Date().getTime() - 1000 * 60 * 60 * 24 * 30,
+        new Date().getTime() - 30 * time.Day,
       ),
     ).toISOString()
 
@@ -90,7 +90,7 @@ export class T212 {
     console.log(`[T212] Report generated! Id: ${reportId}`)
     console.log("[T212] Waiting 10 seconds for report to appear...")
 
-    await delay(10000)
+    await delay(10 * time.Second)
     const downloadLink = await this.findReportDownloadLink(reportId)
     console.log(`[T212] Downloading report CSV: ${downloadLink}`)
 

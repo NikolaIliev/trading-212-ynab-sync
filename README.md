@@ -16,3 +16,4 @@ A script which imports debit card transactions from your Trading 212 account int
 - If you wish to set a specific start date which is not more than 30 days in the past, use e.g. `T212_IMPORT_START_DATE=2025-02-01` in `.env`.
 Useful if you're just starting your budget and wish to ignore the previous month's transactions.
 - Transactions are only returned by the T212 API if they're cleared (appear as Completed in the t212 app). If they're still pending, they won't be returned by the API and will not be imported into YNAB.
+- If your T212/YNAB accounts are in different currencies, you can set a conversion rate in .env via `T212_YNAB_CONVERSION_RATE=2.345`

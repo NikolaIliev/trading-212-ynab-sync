@@ -1,5 +1,6 @@
 import * as ynab from "ynab"
 import type { T212Transaction } from "../schemas/T212Transaction"
+import { env } from "./env"
 
 export class YNAB {
   ynabApi: ynab.api
@@ -49,15 +50,14 @@ export class YNAB {
         amount: parseInt(
           (
             transaction.value *
-            // convert to BGN
-            1.95583 *
+            (env.T212YnabConversionRate ?? 1) *
             // YNAB takes milliunits format
             1000
           ).toFixed(0),
         ),
         payee_name: transaction.merchantName,
         approved: true,
-        cleared: "cleared",
+        cleared: "cleared" as const,
         account_id: account.id,
       })),
     })
