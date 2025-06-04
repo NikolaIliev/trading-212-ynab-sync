@@ -1,6 +1,10 @@
+# What is this?
+A script which imports debit card transactions from your Trading 212 account into your YNAB budget.
+
 # Requirements
 - Bun (https://bun.sh)
 - .env file with `T212_API_KEY=your_key` and `YNAB_API_KEY=your_key`
+- Make sure your Trading 212 API key has the `History - Transactions` permission.
 
 # How to run
 - `bun install`
