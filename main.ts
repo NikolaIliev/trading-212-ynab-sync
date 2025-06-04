@@ -1,4 +1,3 @@
-require("dotenv").config()
 import { T212 } from "./libs/T212"
 import { YNAB } from "./libs/YNAB"
 import { env } from "./libs/env"

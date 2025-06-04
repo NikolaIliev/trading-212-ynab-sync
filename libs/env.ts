@@ -1,3 +1,4 @@
+require("dotenv").config()
 import { z } from "zod"
 
 function readEnv<T>(name: string, schema: z.ZodSchema<T>): T {
