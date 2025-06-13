@@ -5,6 +5,7 @@ import {
 import * as csv from "@fast-csv/parse"
 import { delay } from "../utils/delay"
 import { time } from "./time"
+import { confirm } from "@inquirer/prompts"
 
 export class T212 {
   private headers: Record<string, string>
@@ -88,9 +89,11 @@ export class T212 {
   async getTransactions(): Promise<T212Transaction[]> {
     const reportId = await this.requestReport()
     console.log(`[T212] Report generated! Id: ${reportId}`)
-    console.log("[T212] Waiting 10 seconds for report to appear...")
+    await confirm({
+      message:
+        "Please confirm once you've received a notification about the report being generated...",
+    })
 
-    await delay(10 * time.Second)
     const downloadLink = await this.findReportDownloadLink(reportId)
     console.log(`[T212] Downloading report CSV: ${downloadLink}`)
 
