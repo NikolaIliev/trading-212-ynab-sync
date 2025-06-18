@@ -56,7 +56,7 @@ export class YNAB {
           ).toFixed(0),
         ),
         payee_name: transaction.merchantName,
-        approved: true,
+        approved: false,
         cleared: "cleared" as const,
         account_id: account.id,
       })),
